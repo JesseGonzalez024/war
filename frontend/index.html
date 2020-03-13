@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+        html, body {
+          width: 100%;
+          height: 100%;
+        }
+        
+        body {
+            background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Relief_of_the_Light_Brigade.png/1024px-Relief_of_the_Light_Brigade.png");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 100%;
+            height: 100%;
+        }
+
+        main {
+            background: white;
+            margin: auto;
+            max-width: 960px;
+            /* padding: 10%; */
+            width: 60%;
+        }
+         
+        #gamemenue {
+          border: 2px black solid;
+          padding: 3%;
+        }
+
+        #gameboard {
+          border: 2px black solid;
+          padding: 100px;
+        }
+        
+        #gameplay {
+          border: 2px black solid;
+          padding: 3%; 
+        }
+        
+    </style>
+  </head>
+  <body>
+    <main>
+      <section id="gamemenue">
+        <nav>
+          <div id="scoreboard">
+              <!-- Display ScoreBoard of best games depending on the least amount of moves -->
+          </div>
+          <div id="gamesettings">
+              <!-- Display Game options, New Game button Game Rules -->
+              <button id="option" type="button">New Game!</button>
+              <button id="option" type="button">Game Rules!</button>
+          </div>
+          <div id="playerstatus">
+              <!-- Display Player username, and number of moves -->
+          </div>
+        </nav>
+      </section>
+      <section id="gameboard">
+        <!-- Display game board as individual elements -->
+      </section>
+      <section id="gameplay"> 
+        <div id="playercontrolls">
+          <button id="option" type="button">Attack!</button>
+          <button id="option" type="button">Re-group!</button>
+          <button id="option" type="button">End Turn!</button>
+        </div>
+        <div id="showdown">
+          <div id="yourtroops">
+        
+          </div>
+          <div id="opponents">
+
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
