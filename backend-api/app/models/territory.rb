@@ -1,3 +1,3 @@
 class Territory < ApplicationRecord
-    belongs_to :game
+    #Territories belong to a user after completion of conquest.
 end
