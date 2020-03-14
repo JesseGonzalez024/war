@@ -42,19 +42,17 @@
           padding: 3%; 
         }
 
-        #playerstatus {
-
-        }
-
         #gameboard {
           border: 2px black solid;
-          padding: 100px;
+          padding: 50px;
         }
 
         #gameplay {
+          display: flex;
           border: 2px black solid;
           padding: 3%; 
         }
+
         
     </style>
   </head>
@@ -72,34 +70,55 @@
           </div>
           <div id="gamesettings">
               <!-- Display Game options, New Game button Game Rules -->
-              <button id="option" type="button">New Game!</button>
-              <br>
-              <button id="option" type="button">Game Rules!</button>
+              <button id="newgame" type="button">New Game!</button>
           </div>
           <div id="playerstatus">
               <!-- Display Player username, and number of moves -->
+              <h6>Turn Number: </h6>
           </div>
       </section>
-      <section id="gameboard">
-        <!-- Display game board as individual elements -->
-      </section>
-      <section id="gameplay"> 
-        <div id="playercontrolls">
-          <button id="option" type="button">Attack!</button>
-          <br>
-          <button id="option" type="button">Re-group!</button>
-          <br>
-          <button id="option" type="button">End Turn!</button>
-        </div>
-        <div id="showdown">
-          <div id="yourtroops">
-        
+      <form>
+        <section id="gameboard">
+          <!-- Display game board as individual elements -->
+          <img id="worldmap" src="/Users/jesse/Desktop/war/frontend/images/world-map.jpg" style="width:100%; margin: auto;">
+            <label>From:</label>
+              <select id="Offensive" name="Offensive">
+                <option value="northamerica">North America</option>
+                <option value="southamerica">South America</option>
+                <option value="africa">Africa</option>
+                <option value="europe">Europe</option>
+                <option value="australia">Africa</option>
+                <option value="asia">Asia</option>
+              </select>
+              <label>To:</label>
+              <select id="Offensive" name="Offensive">
+                <option value="northamerica">North America</option>
+                <option value="southamerica">South America</option>
+                <option value="africa">Africa</option>
+                <option value="europe">Europe</option>
+                <option value="australia">Africa</option>
+                <option value="asia">Asia</option>
+              </select>
+        </section>
+        <section id="gameplay"> 
+          <div id="playercontrolls">
+            <button id="attack" type="submit">Attack!</button>
+            <br>
+            <button id="regroup" type="submit">Re-group!</button>
+            <br>
+            <button id="endturn" type="submit">End Turn!</button>
           </div>
-          <div id="opponents">
-
+          <div id="showdown">
+            <div id="yourtroops">
+              <h6>You have X many troops</h6>
+            </div>
+            <div id="opponents">
+              <h6>Your opponent has x many troops</h6>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </form>
     </main>
   </body>
+  <script src="./src/index.js"> </script>
 </html>
