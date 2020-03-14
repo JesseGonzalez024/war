@@ -1,4 +1,4 @@
 class User < ApplicationRecord
+    validates :username, uniqueness: true
     has_many :games
-    has_many :territories, through: :game
 end

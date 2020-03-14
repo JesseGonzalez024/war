@@ -6,9 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-north_america = Territory.create(name: "North America") 
-south_america = Territory.create(name: "South America")
-australia = Territory.create(name: "Australia")
-europe = Territory.create(name: "Europe")
-asia = Territory.create(name: "Asia") 
-middle_east = Territory.create(name: "Middle East")
+jesse = User.create(username: "jessegonz", final_count: 10)
+adrian = User.create(username: "adritown", final_count: 8)
+gabriel = User.create(username: "gabeperez", final_count: 15)
+sam = User.create(username: "samgonz", final_count: 9)
