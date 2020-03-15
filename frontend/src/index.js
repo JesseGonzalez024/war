@@ -2,11 +2,15 @@ const newGameButton = document.getElementById("newgame")
 const attackButton = document.getElementById("attack")
 const reGroupButton = document.getElementById("regroup")
 const endTurnButton = document.getElementById("endturn")
-const gameBoard = document.getElementById("map")
+const map = document.getElementById("worldmap")
 
 
-newGameButton.addEventListener("click", function(e){
-    e.preventDefault();
-   
-})
+newGameButton.addEventListener("click", renderMap)
+
+function renderMap(){
+   let imgsrc = "/Users/jesse/Desktop/war/frontend/images/world-map.jpg"
+   map.src = imgsrc
+}
+
+
 

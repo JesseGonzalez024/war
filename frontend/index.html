@@ -52,21 +52,55 @@
           border: 2px black solid;
           padding: 3%; 
         }
-
         
+        table {
+          padding: 30px;
+        }
+        th, td{
+          padding: 10px;
+          border: 1px solid black;
+        }
+
+        h4 {
+          padding-left: 60px;
+          margin-bottom: 10px;
+        }
+        
+        p {
+          font-family: "Courier New", Courier, monospace;
+        }
     </style>
   </head>
   <body>
     <main>
       <section id="gamemenue">
           <div id="scoreboard">
-            <h6>Generals to Beat!</h6>
+            <h4>Generals to Beat!</h4>
               <!-- Display ScoreBoard of best games depending on the least amount of moves -->
-              <ol>
-                <li></li>
-                <li></li>
-                <li></li>
-              </ol>  
+              <table>
+                <tr>
+                  <th></th>
+                  <th>Username</th>
+                  <th>Turn Score</th>
+                </tr>
+                <tr>
+                </tr>
+                <tr id="firstplace">
+                  <td>1st Place:</td>
+                  <td id="nameone"></td>
+                  <td id="countone"></td>
+                </tr>
+                <tr id="secondplace">
+                  <td>2nd Place:</td>
+                  <td id="nametwo"></td>
+                  <td id="counttwo"></td>
+                </tr>
+                <tr id="thirdplace">
+                  <td>3rd Place:</td>
+                  <td id="namethree"></td>
+                  <td id="countthree"></td>
+                </tr>
+              </table>
           </div>
           <div id="gamesettings">
               <!-- Display Game options, New Game button Game Rules -->
@@ -79,8 +113,9 @@
       </section>
       <form>
         <section id="gameboard">
+          <p>Welcome to the game of War! A strategy based game. The idea and winning factor is to conquer the Globe! Each turn you will be allowed to select a territory that belongs to you and an alternate territory that does not. The idea is to attak the opponents troops in an effort to overtake the territory. Do this for each continent to win. You may only attack a territory if you have more troops than your opponent. If you do not have any possible attack options then you may end your turn. Upon your next turn you will be given reinforcement to each territory you currently have control over. After the game is over you may enter your username to compare the amount of turns yout took to conquer the globe vs other palyers. Enjoy!</p>
           <!-- Display game board as individual elements -->
-          <img id="worldmap" src="/Users/jesse/Desktop/war/frontend/images/world-map.jpg" style="width:100%; margin: auto;">
+          <img id="worldmap" src="" style="width:100%; margin: auto;">
             <label>From:</label>
               <select id="Offensive" name="Offensive">
                 <option value="northamerica">North America</option>
@@ -104,7 +139,7 @@
           <div id="playercontrolls">
             <button id="attack" type="submit">Attack!</button>
             <br>
-            <button id="regroup" type="submit">Re-group!</button>
+            <!-- <button id="regroup" type="submit">Re-group!</button> -->
             <br>
             <button id="endturn" type="submit">End Turn!</button>
           </div>
@@ -121,4 +156,5 @@
     </main>
   </body>
   <script src="./src/index.js"> </script>
+  <script src="./src/api.js"> </script>
 </html>
