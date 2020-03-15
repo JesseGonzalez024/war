@@ -110,48 +110,51 @@
               <h6>Turn Number: </h6>
           </div>
       </section>
-      <form>
-        <section id="gameboard">
-          <p>Welcome to the game of War! A strategy based game. The idea and winning factor is to conquer the Globe! Each turn you will be allowed to select a territory that belongs to you and an alternate territory that does not. The idea is to attak the opponents troops in an effort to overtake the territory. Do this for each continent to win. You may only attack a territory if you have more troops than your opponent. If you do not have any possible attack options then you may end your turn. Upon your next turn you will be given reinforcement to each territory you currently have control over. After the game is over you may enter your username to compare the amount of turns yout took to conquer the globe vs other palyers. Enjoy!</p>
-          <!-- Display game board as individual elements -->
-          <img id="worldmap" src="" style="width:100%; margin: auto;">
+      <section>
+        <form>
+          <section id="gameboard">
+            <p>Welcome to the game of War! A strategy based game. The idea and winning factor is to conquer the Globe! Each turn you will be allowed to select a territory that belongs to you and an alternate territory that does not. The idea is to attak the opponents troops in an effort to overtake the territory. Do this for each continent to win. You may only attack a territory if you have more troops than your opponent. If you do not have any possible attack options then you may end your turn. Upon your next turn you will be given reinforcement to each territory you currently have control over. After the game is over you may enter your username to compare the amount of turns yout took to conquer the globe vs other palyers. Enjoy!</p>
+            <img id="worldmap" src="" style="width:100%; margin: auto;">
+            <br>
+            <br>
             <label>From:</label>
-              <select id="Offensive" name="Offensive">
-                <option value="northamerica">North America</option>
-                <option value="southamerica">South America</option>
-                <option value="africa">Africa</option>
-                <option value="europe">Europe</option>
-                <option value="australia">Africa</option>
-                <option value="asia">Asia</option>
-              </select>
-              <label>To:</label>
-              <select id="deffensive" name="deffensive">
-                <option value="northamerica">North America</option>
-                <option value="southamerica">South America</option>
-                <option value="africa">Africa</option>
-                <option value="europe">Europe</option>
-                <option value="australia">Africa</option>
-                <option value="asia">Asia</option>
-              </select>
-        </section>
-        <section id="gameplay"> 
-          <div id="playercontrolls">
-            <button id="attack" type="submit">Attack!</button>
-            <br>
-            <!-- <button id="regroup" type="submit">Re-group!</button> -->
-            <br>
-            <button id="endturn" type="submit">End Turn!</button>
-          </div>
-          <div id="showdown">
-            <div id="yourtroops">
-              <h6>You have X many troops</h6>
+                <select id="Offensive" name="Offensive">
+                  <option value="northamerica">North America</option>
+                  <option value="southamerica">South America</option>
+                  <option value="africa">Africa</option>
+                  <option value="europe">Europe</option>
+                  <option value="australia">Africa</option>
+                  <option value="asia">Asia</option>
+                </select>
+                <label>To:</label>
+                <select id="deffensive" name="deffensive">
+                  <option value="northamerica">North America</option>
+                  <option value="southamerica">South America</option>
+                  <option value="africa">Africa</option>
+                  <option value="europe">Europe</option>
+                  <option value="australia">Africa</option>
+                  <option value="asia">Asia</option>
+                </select>
+          </section>
+          <section id="gameplay"> 
+            <div id="playercontrolls">
+              <button id="attack" type="submit">Attack!</button>
+              <br>
+              <!-- <button id="regroup" type="submit">Re-group!</button> -->
+              <br>
+              <button id="endturn" type="submit">End Turn!</button>
             </div>
-            <div id="opponents">
-              <h6>Your opponent has x many troops</h6>
+            <div id="showdown">
+              <div id="yourtroops">
+                <h6>You have X many troops</h6>
+              </div>
+              <div id="opponents">
+                <h6>Your opponent has x many troops</h6>
+              </div>
             </div>
-          </div>
-        </section>
-      </form>
+          </section>
+          </form>
+      </section>
     </main>
   </body>
   <script src="./src/index.js"> </script>

@@ -1,9 +1,10 @@
 class GamesController < ApplicationController
     
     def new 
-        # Method is fetched by JS upon "new game" event
-        # Renders territories and commences game instance. 
-        render json: territories
+        # Upon new game button clicked. a fetch option is initiated and creates a new game instance.
+        # Upon game instance created a 
+       continents = Continent.game_initializer 
+       render json: continents
     end
 
     def create
@@ -11,6 +12,7 @@ class GamesController < ApplicationController
         # Saves the username and creates a new territory
         # Only after game completion is the instance of the game saved.
         # Math.floor(Math.random() * 10)
+        # Game is only saved after completion
     end
 
 end

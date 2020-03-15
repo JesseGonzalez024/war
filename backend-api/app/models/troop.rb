@@ -1,0 +1,3 @@
+class Troop < ApplicationRecord
+    
+end
