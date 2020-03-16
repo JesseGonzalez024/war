@@ -4,14 +4,14 @@
     <title>War</title>
     <style>
         body {
-            background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Relief_of_the_Light_Brigade.png/1024px-Relief_of_the_Light_Brigade.png");
+            background-image: url(" https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Relief_of_the_Light_Brigade.png/1024px-Relief_of_the_Light_Brigade.png");
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
             width: 100%;
             height: 100%;
         }
-
+      
         main {
             background: white;
             margin: auto;
@@ -119,30 +119,32 @@
             <br>
             <label>From:</label>
                 <select id="Offensive" name="Offensive">
+                  <option>select an option</option>
                   <option value="northamerica">North America</option>
                   <option value="southamerica">South America</option>
                   <option value="africa">Africa</option>
                   <option value="europe">Europe</option>
-                  <option value="australia">Africa</option>
+                  <option value="australia">Australia</option>
                   <option value="asia">Asia</option>
                 </select>
                 <label>To:</label>
                 <select id="deffensive" name="deffensive">
+                  <option>select an option</option>
                   <option value="northamerica">North America</option>
                   <option value="southamerica">South America</option>
                   <option value="africa">Africa</option>
                   <option value="europe">Europe</option>
-                  <option value="australia">Africa</option>
+                  <option value="australia">Australia</option>
                   <option value="asia">Asia</option>
                 </select>
           </section>
           <section id="gameplay"> 
             <div id="playercontrolls">
-              <button id="attack" value="attack" type="submit">Attack!</button>
+              <button id="attack" type="submit">Attack!</button>
               <br>
               <!-- <button id="regroup" type="submit">Re-group!</button> -->
               <br>
-              <button id="endturn" value="attack" type="submit">End Turn!</button>
+              <button id="endturn" type="submit">End Turn!</button>
             </div>
             <div id="showdown">
               <div id="yourtroops">
@@ -159,4 +161,5 @@
   </body>
   <script src="./src/index.js"> </script>
   <script src="./src/api.js"> </script>
+  <script src="./src/gameplay.js"> </script>
 </html>
