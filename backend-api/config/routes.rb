@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   
   resources :games, only: [:index, :new, :create]
   resources :users, only: [:index, :new, :create]
+  resources :continents, only: [:index]
 end
