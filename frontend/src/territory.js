@@ -17,15 +17,14 @@ class Territory {
                 return Territory.all
             })
           })
-
       }
 
-
-      static findLoser(loser) {
-        Territory.all.find(function(x) {
-            x.name == loser           
-            if (element.name === loser){
-                console.log("Found it")
+      static findLocation(territory) {
+          let x = territory
+        Territory.all.find(function(element) { 
+            if (element.name == x ) {
+                element.troops -= 1
+                return element
             }
 
         })

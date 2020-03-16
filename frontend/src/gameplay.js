@@ -9,9 +9,6 @@ function startgame(){
     Territory.fetchTerritories()
 }
 
-
-
-
 function renderMap(){
     const map = document.getElementById("worldmap")
     let imgsrc = "/Users/jesse/Desktop/war/frontend/images/world-map.jpg"
@@ -28,26 +25,22 @@ function attack(event){
     verifyWinner(attacker, defender)
 }
 
-
-
 function verifyWinner(attacker, defender){
-    let result = winner()
+
+    let result = diceRoll()
     
-    debugger
+    // let battle = {player: attacker, pc: defender, status: result}
+
     if (result == true) {
-        // debugger
+        Territory.findLocation(defender)
         console.log("We won")
-        Territory.findLoser(defender)
-        // reduce troops from deffender 
     } else if (result === false) {
-        // debugger
-        // reduce troops from player 
+        Territory.findLocation(attacker)
         console.log("Loser")
-        Territory.findLoser(attacker)
     }
 }
 
-function winner(){  
+function diceRoll(){  
     let player = Math.floor(Math.random() * 6 + 1)
     let pc = Math.floor(Math.random() * 6 + 1)
     let playerdice = document.getElementById("playerdice")
