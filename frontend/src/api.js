@@ -1,8 +1,5 @@
 // Function to retrieve scoreboard leaders
 
-class gameApi {
-    
-}
 
 document.addEventListener('DOMContentLoaded', fetchPlayers)
 
