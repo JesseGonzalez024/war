@@ -1,23 +1,36 @@
 const newGameButton = document.getElementById("newgame")
 const attackButton = document.getElementById("attack")
 const endTurnButton = document.getElementById("endturn")
-const map = document.getElementById("worldmap")
 
 
-newGameButton.addEventListener("click", renderMap)
+newGameButton.addEventListener("click", startgame)
+
+function startgame(){
+    renderMap()
+
+}
+
+
+
 
 function renderMap(){
-   let imgsrc = "/Users/jesse/Desktop/war/frontend/images/world-map.jpg"
-   map.src = imgsrc
+    const map = document.getElementById("worldmap")
+    let imgsrc = "/Users/jesse/Desktop/war/frontend/images/world-map.jpg"
+    map.src = imgsrc
 }
 
 attackButton.addEventListener("click", attack)
 
 function attack(event){
     event.preventDefault()
-   let value = event.toElement.form.elements[0].options.selectedIndex 
+//    let value = event.toElement.form.elements[0].options.selectedIndex 
+    let attacker = event.toElement.form.elements[0].selectedOptions[0].label
+    let defender = event.toElement.form.elements[1].selectedOptions[0].label
+
+    Territory.fetchTerritories()
+    debugger
         if (value == 0) {
-	        console.log("please try again");
+	        alert("please try again");
         } else if (value == 1 ) {
 	        console.log("North america");
         }
@@ -35,5 +48,24 @@ function attack(event){
         }
 
 }
+
+function winner(){  
+    let player = Math.floor(Math.random() * 6 + 1)
+    let pc = Math.floor(Math.random() * 6 + 1)
+    let playerdice = document.getElementById("playerdice")
+    let oppdice = document.getElementById("oppdice")
+    playerdice.innerHTML = player
+    oppdice.innerHTML = pc
+
+    if (player > pc ){
+        alert("You win this round!")
+        return true
+    }
+    else if (player < pc ){
+        alert("You've lost this round!")
+        return false
+    }
+}
+
 
 

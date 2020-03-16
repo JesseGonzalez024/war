@@ -45,11 +45,10 @@
 
         #gameboard {
           border: 2px black solid;
-          padding: 50px;
+          padding: 100px;
         }
 
         #gameplay {
-          display: flex;
           border: 2px black solid;
           padding: 3%; 
         }
@@ -69,6 +68,20 @@
         
         p {
           font-family: "Courier New", Courier, monospace;
+        }
+
+        #yourroll {
+          float: left;
+          height: 100px;
+          width: 100px;
+          border: 2px black solid;
+          
+        }
+        #theirroll {
+          float: right;
+          height: 100px;
+          width: 100px;
+          border: 2px black solid;
         }
     </style>
   </head>
@@ -137,6 +150,20 @@
                   <option value="australia">Australia</option>
                   <option value="asia">Asia</option>
                 </select>
+                <br>
+                <br>
+                <div id="diceroll">
+                    <div id="yourroll">
+                      <p>Your Dice Roll:</p>
+                      <h6 id="playerdice"></h6>
+                    </div>
+                    <div id="theirroll">
+                      <p>Opponents Dice Roll:</p>
+                      <h6 id="oppdice"></h6>
+                    </div>
+                </div>
+                <br>
+                <br>
           </section>
           <section id="gameplay"> 
             <div id="playercontrolls">
@@ -148,10 +175,10 @@
             </div>
             <div id="showdown">
               <div id="yourtroops">
-                <h6>You have X many troops</h6>
+                <h4>You have X many troops</h6>
               </div>
               <div id="opponents">
-                <h6>Your opponent has x many troops</h6>
+                <h4>Your opponent has x many troops</h6>
               </div>
             </div>
           </section>

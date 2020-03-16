@@ -1,8 +1,6 @@
 // Function to retrieve scoreboard leaders
 
-
 document.addEventListener('DOMContentLoaded', fetchPlayers)
-
 
 
 function fetchPlayers() {
