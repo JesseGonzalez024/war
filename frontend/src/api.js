@@ -22,4 +22,5 @@ function renderPlayers(json) {
     counttwo.innerHTML = `${json[1].final_count}`
     namethree.innerHTML = `${json[2].username}`
     countthree.innerHTML = `${json[2].final_count}`     
+
 }

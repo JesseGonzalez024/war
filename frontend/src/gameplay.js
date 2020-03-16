@@ -2,12 +2,11 @@ const newGameButton = document.getElementById("newgame")
 const attackButton = document.getElementById("attack")
 const endTurnButton = document.getElementById("endturn")
 
-
 newGameButton.addEventListener("click", startgame)
 
 function startgame(){
     renderMap()
-
+    Territory.fetchTerritories()
 }
 
 
@@ -23,30 +22,29 @@ attackButton.addEventListener("click", attack)
 
 function attack(event){
     event.preventDefault()
-//    let value = event.toElement.form.elements[0].options.selectedIndex 
     let attacker = event.toElement.form.elements[0].selectedOptions[0].label
     let defender = event.toElement.form.elements[1].selectedOptions[0].label
+    
+    verifyWinner(attacker, defender)
+}
 
-    Territory.fetchTerritories()
+
+
+function verifyWinner(attacker, defender){
+    let result = winner()
+    
     debugger
-        if (value == 0) {
-	        alert("please try again");
-        } else if (value == 1 ) {
-	        console.log("North america");
-        }
-        else if (value == 2 ) {
-	        console.log("South America");
-        }
-        else if (value == 3 ) {
-	        console.log("Africa");
-        }
-        else if (value == 4 ) {
-	        console.log("Europe");
-        }
-        else if (value == 5 ) {
-	        console.log("Asia");
-        }
-
+    if (result == true) {
+        // debugger
+        console.log("We won")
+        Territory.findLoser(defender)
+        // reduce troops from deffender 
+    } else if (result === false) {
+        // debugger
+        // reduce troops from player 
+        console.log("Loser")
+        Territory.findLoser(attacker)
+    }
 }
 
 function winner(){  

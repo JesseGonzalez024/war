@@ -14,14 +14,21 @@ class Territory {
           .then(json => {
             json.forEach(function(x){
                 let y = new Territory(x.name)
+                return Territory.all
             })
           })
 
       }
 
-      
 
-    // Hard code .id into each element.
-    // Getter and setter method for troops.
-    // Every time a battle is simulated the amount of troops per territory is reduced by one.
+      static findLoser(loser) {
+        Territory.all.find(function(x) {
+            x.name == loser           
+            if (element.name === loser){
+                console.log("Found it")
+            }
+
+        })
+      }
+
 }
