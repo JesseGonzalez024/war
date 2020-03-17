@@ -1,3 +1,0 @@
-class Troop < ApplicationRecord
-    
-end

@@ -3,6 +3,9 @@ const attackButton = document.getElementById("attack")
 const endTurnButton = document.getElementById("endturn")
 
 newGameButton.addEventListener("click", startgame)
+attackButton.addEventListener("click", attack)
+endTurnButton.addEventListener("click", handleTurnEnd)
+
 
 function startgame(){
     renderMap()
@@ -15,8 +18,6 @@ function renderMap(){
     map.src = imgsrc
 }
 
-attackButton.addEventListener("click", attack)
-
 function attack(event){
     event.preventDefault()
     let attacker = event.toElement.form.elements[0].selectedOptions[0].label
@@ -25,11 +26,10 @@ function attack(event){
     verifyWinner(attacker, defender)
 }
 
+
 function verifyWinner(attacker, defender){
 
     let result = diceRoll()
-    
-    // let battle = {player: attacker, pc: defender, status: result}
 
     if (result == true) {
         Territory.findLocation(defender)
@@ -49,14 +49,18 @@ function diceRoll(){
     oppdice.innerHTML = pc
 
     if (player > pc ){
-        alert("You win this round!")
+        alert("You win this round adn your opponent has lost a troop!")
         return true
     }
     else if (player < pc ){
-        alert("You've lost this round!")
+        alert("You've lost this round and 1 troop!")
         return false
     }
 }
 
+function handleTurnEnd(){
+    // If player selects to end turn
+    // a post method is sent to the back end with a turn count + 1
+}
 
 
