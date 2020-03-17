@@ -6,8 +6,8 @@ newGameButton.addEventListener("click", startgame)
 attackButton.addEventListener("click", attack)
 endTurnButton.addEventListener("click", handleTurnEnd)
 
-
 function startgame(){
+
     renderMap()
     Territory.fetchTerritories()
 }
@@ -59,6 +59,7 @@ function diceRoll(){
 }
 
 function handleTurnEnd(){
+    
     // If player selects to end turn
     // a post method is sent to the back end with a turn count + 1
 }

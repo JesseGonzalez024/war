@@ -30,4 +30,12 @@ class Territory {
         })
       }
 
+      zeroTroops() {
+          if (this.troops === 0){
+            let index = Player.all.length - 1
+            let player = Player.all[index]
+            player.territories.push(this)
+          }
+      }
+
 }

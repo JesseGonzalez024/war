@@ -49,6 +49,7 @@
         }
 
         #gameplay {
+          display: flex;
           border: 2px black solid;
           padding: 3%; 
         }
@@ -83,6 +84,29 @@
           width: 100px;
           border: 2px black solid;
         }
+
+        #yourtroops {
+          margin-left: 100px;
+          padding: 10%;
+          height: 100px;
+          width: 100px;
+          border: 2px black solid;
+          
+        }
+        #opponents {
+          margin-left: 100px;
+          padding: 10%;
+          height: 100px;
+          width: 100px;
+          border: 2px black solid;
+        }
+        
+        #usernameform {
+          margin: 10px;
+          padding: 10px;
+          text-align: center;
+        }
+
     </style>
   </head>
   <body>
@@ -117,6 +141,11 @@
           <div id="gamesettings">
               <!-- Display Game options, New Game button Game Rules -->
               <button id="newgame" type="button">New Game!</button>
+              <form id="usernameform">
+                <label>Player Name:</label>
+                <input id="username" type="text" name="playername">
+                <input id="usernamesubmit" type="submit" value="Submit">
+              </form>
           </div>
           <div id="playerstatus">
               <!-- Display Player username, and number of moves -->
@@ -176,10 +205,10 @@
             </div>
             <div id="showdown">
               <div id="yourtroops">
-                <h4>You have X many troops</h6>
+                <h5>You have X many troops:</h5>
               </div>
               <div id="opponents">
-                <h4>Your opponent has x many troops</h6>
+                <h5>Your opponent has x many troops:</h5>
               </div>
             </div>
           </section>
@@ -187,8 +216,9 @@
       </section>
     </main>
   </body>
+  <script src="./src/player.js"> </script>
   <script src="./src/territory.js"> </script>
-  <script src="./src/index.js"> </script>
-  <script src="./src/api.js"> </script>
+  <script src="./src/PlayerAdapter.js"> </script>
   <script src="./src/gameplay.js"> </script>
+  <script src="./src/index.js"> </script>
 </html>

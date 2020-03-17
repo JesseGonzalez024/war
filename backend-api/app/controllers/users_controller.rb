@@ -10,7 +10,8 @@ class UsersController < ApplicationController
     end
 
     def create
+        binding.pry
         # Username is stored in database along with the number of tries
     end
-
+    
 end

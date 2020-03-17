@@ -14,8 +14,6 @@ ActiveRecord::Schema.define(version: 2020_03_15_213945) do
 
   create_table "continents", force: :cascade do |t|
     t.string "name"
-    t.integer "user_id"
-    t.integer "game"
   end
 
   create_table "games", force: :cascade do |t|
