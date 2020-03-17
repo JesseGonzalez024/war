@@ -7,7 +7,6 @@ attackButton.addEventListener("click", attack)
 endTurnButton.addEventListener("click", handleTurnEnd)
 
 function startgame(){
-
     renderMap()
     Territory.fetchTerritories()
 }
@@ -25,7 +24,6 @@ function attack(event){
     
     verifyWinner(attacker, defender)
 }
-
 
 function verifyWinner(attacker, defender){
 
@@ -45,6 +43,7 @@ function diceRoll(){
     let pc = Math.floor(Math.random() * 6 + 1)
     let playerdice = document.getElementById("playerdice")
     let oppdice = document.getElementById("oppdice")
+    
     playerdice.innerHTML = player
     oppdice.innerHTML = pc
 
@@ -58,8 +57,8 @@ function diceRoll(){
     }
 }
 
+
 function handleTurnEnd(){
-    
     // If player selects to end turn
     // a post method is sent to the back end with a turn count + 1
 }

@@ -16,6 +16,10 @@ class Territory {
                 let y = new Territory(x.name)
                 return Territory.all
             })
+            .catch(function(error) {
+                alert("Trouble Connecting to the server");
+                console.log(error.message);
+              })
           })
       }
 
@@ -37,5 +41,4 @@ class Territory {
             player.territories.push(this)
           }
       }
-
 }
