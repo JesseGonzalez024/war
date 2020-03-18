@@ -14,7 +14,7 @@ class Territory {
           .then(json => {
             json.forEach(function(x){
                 let y = new Territory(x.name)
-                // return Territory.all
+                return Territory.all
 
             })
             Territory.renderTerritories()
@@ -31,9 +31,13 @@ class Territory {
             element.value = `${t.name}`
             element.innerHTML = `${t.name}`
             offensive.appendChild(element)
-            deffensive.appendChild(element)
         })
-        debugger
+        Territory.all.forEach(function(t){
+            let element =  document.createElement("option")
+            element.value = `${t.name}`
+            element.innerHTML = `${t.name}`
+            defensive.appendChild(element)
+        })
       }
 
       static findLocation(territory) {
@@ -59,4 +63,4 @@ class Territory {
 }
 
 let offensive = document.getElementById("offensive")
-let deffensive = document.getElementById("deffensive")
+let defensive = document.getElementById("defensive")
