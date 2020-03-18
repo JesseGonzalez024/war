@@ -12,8 +12,4 @@ class UsersController < ApplicationController
         end
     end
 
-    def update
-       binding.pry 
-    end
-
 end
