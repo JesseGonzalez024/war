@@ -8,7 +8,7 @@ class GamesController < ApplicationController
         # Only after game completion is the instance of the game saved.
         # Math.floor(Math.random() * 10)
         # Game is only saved after completion
-
+        binding.pry
         game = Game.new
 
     end

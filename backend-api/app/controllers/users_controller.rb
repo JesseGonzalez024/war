@@ -6,8 +6,14 @@ class UsersController < ApplicationController
     end
 
     def create
-        byebug
-        # Username is stored in database along with the number of tries
+        user = User.new(username: params[:name])
+        if user.valid?
+            user.save
+        end
+    end
+
+    def update
+       binding.pry 
     end
 
 end
