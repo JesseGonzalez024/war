@@ -15,18 +15,24 @@ class Player {
         })
     }
 
+    static renderPlayer() {
+        let player = Player.all[0]
+        let divtag = document.getElementById("playerstatus")
+        let turntag = document.createElement("h6")
+        turntag.innerHTML = `${player.turnCount}`
+        divtag.appendChild(turntag)
+    }
 }
 
 const usernamesubmit = document.getElementById("usernamesubmit")
 usernamesubmit.addEventListener("click", handleUsername) 
 
 function handleUsername(event) {
-
     event.preventDefault()
     let username = event.srcElement.form.elements[0].value
     let player = new Player(username)
+    renderPlayer()
     postPlayer(player)
-
 }
 
 function postPlayer (player) {
@@ -52,7 +58,6 @@ function postPlayer (player) {
         console.log(error.message);
       })
 }
-
 
 
 

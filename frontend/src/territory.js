@@ -15,7 +15,6 @@ class Territory {
             json.forEach(function(x){
                 let y = new Territory(x.name)
                 return Territory.all
-
             })
             Territory.renderTerritories()
             .catch(function(error) {
