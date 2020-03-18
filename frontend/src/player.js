@@ -5,15 +5,16 @@ class Player {
     constructor (name) {
         this.name = name
         this.territories = []
+        this.turnCount = 0
         Player.all.push(this)
     }
 
-    weHaveAWinner(){
-        if (this.territories.length == 6 ){
-            // Callback function to post winner to Rails API database.
-            postWinner()
-        }
+    addTroops(){
+        this.territories.forEach(function(t){
+            t.troops += 1
+        })
     }
+
 }
 
 const usernamesubmit = document.getElementById("usernamesubmit")
@@ -51,6 +52,10 @@ function postPlayer (player) {
         console.log(error.message);
       })
 }
+
+
+
+
 
 
 

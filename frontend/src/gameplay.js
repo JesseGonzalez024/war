@@ -6,7 +6,7 @@ newGameButton.addEventListener("click", startgame)
 attackButton.addEventListener("click", attack)
 endTurnButton.addEventListener("click", handleTurnEnd)
 
-function startgame(){
+function startgame() {
     renderMap()
     Territory.fetchTerritories()
 }
@@ -57,10 +57,46 @@ function diceRoll(){
     }
 }
 
-
 function handleTurnEnd(){
-    // If player selects to end turn
-    // a post method is sent to the back end with a turn count + 1
+    let player = Player.all[0]
+    player.turnCount += 1
+    player.addTroops()
 }
+
+function allTerritories(player) {
+
+    if (player.territories.length === 6 ) {
+        alert("Congratulations, you now possess all possible Territories, you win!")
+        weHaveAWinner(player)
+    }
+}
+
+function weHaveAWinner(player){
+    configObj = {
+                method: "EDIT",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify(player)
+            } 
+
+            fetch("http://127.0.0.1:3000/games/", configObj) 
+                .then(function(response) {
+                return response.json();
+                })
+                .then(function(object) {
+                console.log(object);
+                })
+                .catch(function(error) {
+                    alert("There has been an error uploading your info onto the database.");
+                    console.log(error.message);
+                  })
+
+
+}
+
+
+
 
 
