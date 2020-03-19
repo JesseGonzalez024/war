@@ -48,6 +48,7 @@ class Territory {
             if (element.name == x ) {
                 element.troops -= 1
                 alert(`${element.name} has ${element.troops} left!`)
+                element.zeroTroops()
                 return element
             }
         })

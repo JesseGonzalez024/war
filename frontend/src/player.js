@@ -11,35 +11,12 @@ class Player {
         Player.all.push(this)
     }
 
-    addTroops(){
+    addTroops() {
         this.territories.forEach(function(t){
             t.troops += 1
         })
-    }
-
-    postPlayer (player) {
-        
-        configObj = {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            },
-            body: JSON.stringify(player)
-        } 
-        debugger
-    
-        return fetch("http://127.0.0.1:3000/users", configObj) 
-            .then(function(response) {
-            return response.json();
-            })
-            .then(function(object) {
-            console.log(object);
-            })
-            .catch(function(error) {
-                alert("Could not Upload your username onto the database");
-                console.log(error.message);
-          })
+        console.log("Your forces have been resupplied")
+        alert("Your forces have been resupplied")
     }
 
     static renderPlayer() {
@@ -75,14 +52,13 @@ function handleUsername(event) {
     let player = new Player(username)
     htag.innerText = `${player.name}`
     Player.renderPlayer()
-    // postPlayer(player)
-    // player.postPlayer()
+    postPlayer(player)
 }
 
-function fetchPlayers() {
-    return fetch("http://127.0.0.1:3000/users")
-    .then(resp => resp.json())
-    .then(json => renderPlayers(json));
+async function fetchPlayers() {
+    const resp = await fetch("http://127.0.0.1:3000/users")
+    const json = await resp.json()
+    return renderPlayers(json)
 }
 
 function renderPlayers(json) {
@@ -100,3 +76,24 @@ function renderPlayers(json) {
     countthree.innerHTML = `${json[2].final_count}`     
 }   
 
+function postPlayer(player) {
+        
+        configObj = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify(player)
+        } 
+    //     // debugger
+    //    return fetch("http://127.0.0.1:3000/users", configObj)
+    //             .then(res)
+    //             console.log(res)
+    //             .then(json => {console.log(json)})
+    //             .catch(function(error) {
+    //                 alert("Trouble Connecting to the server");
+    //                 console.log(error.message);
+    //               })
+
+}

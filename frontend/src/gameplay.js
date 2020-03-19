@@ -48,7 +48,7 @@ function diceRoll(){
     oppdice.innerHTML = pc
 
     if (player > pc ){
-        alert("You win this round adn your opponent has lost a troop!")
+        alert("You win this round and your opponent has lost a troop!")
         return true
     }
     else if (player < pc ){
