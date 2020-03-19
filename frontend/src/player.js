@@ -16,6 +16,7 @@ class Player {
     }
 
     static renderPlayer() {
+        usernamesubmit.style.display = "none"
         let usernameinput = document.getElementById("username")
         username.style.display = "none"
         let player = Player.all[0]
@@ -23,6 +24,17 @@ class Player {
         let turntag = document.createElement("h6")
         turntag.innerHTML = `${player.turnCount}`
         divtag.appendChild(turntag)
+    }
+
+    static listTerritories() {
+        let ultag = document.getElementById("territorylist")
+        let player = Player.all[0]
+        player.territories.forEach(function(t) {
+            let litag = document.createElement("li")
+            litag.innerHTML = `${t.name}`
+            ultag.appendChild(litag)
+        })
+
     }
 }
 

@@ -54,8 +54,7 @@ class Territory {
           if (this.troops === 0){
             let player = Player.all[0]
             player.territories.push(this)
-
-
+            Player.listTerritories()
             allTerritories(player)
           }
       }

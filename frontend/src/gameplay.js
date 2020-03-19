@@ -31,10 +31,10 @@ function verifyWinner(attacker, defender){
 
     if (result == true) {
         Territory.findLocation(defender)
-        console.log("We won")
+        console.log("You won")
     } else if (result === false) {
         Territory.findLocation(attacker)
-        console.log("Loser")
+        console.log("You lost")
     }
 }
 

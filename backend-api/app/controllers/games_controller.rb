@@ -7,6 +7,8 @@ class GamesController < ApplicationController
         game = Game.new
         game.user_id = user.id
         
+        binding.pry
+        
         if game.valid?
             game.save
         end
