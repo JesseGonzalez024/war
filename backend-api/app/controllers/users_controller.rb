@@ -6,10 +6,16 @@ class UsersController < ApplicationController
     end
 
     def create
-        user = User.new(username: params[:name])
-        if user.valid?
-            user.save
-        end
+        byebug
+        # user = User.new(username: params[:name])
+        # if user.valid?
+        #     user.save
+        # end
+    end
+
+    def update
+
+        byebug
     end
 
 end

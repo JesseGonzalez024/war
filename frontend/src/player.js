@@ -11,6 +11,23 @@ class Player {
         Player.all.push(this)
     }
 
+    postPlayer = () => {
+        let configObj = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            
+            body: JSON.stringify(this)
+        }
+
+        fetch("http://127.0.0.1:3000/games", configObj)
+        .then(resp => resp.json())
+        .then(json => console.log(json))
+    }
+
+
     addTroops() {
         this.territories.forEach(function(t){
             t.troops += 1
@@ -50,9 +67,11 @@ function handleUsername(event) {
     event.preventDefault()
     let username = event.srcElement.form.elements[0].value
     let player = new Player(username)
+ 
     htag.innerText = `${player.name}`
     Player.renderPlayer()
-    postPlayer(player)
+    player.postPlayer()
+
 }
 
 async function fetchPlayers() {
@@ -74,26 +93,4 @@ function renderPlayers(json) {
     counttwo.innerHTML = `${json[1].final_count}`
     namethree.innerHTML = `${json[2].username}`
     countthree.innerHTML = `${json[2].final_count}`     
-}   
-
-function postPlayer(player) {
-        
-        configObj = {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            },
-            body: JSON.stringify(player)
-        } 
-    //     // debugger
-    //    return fetch("http://127.0.0.1:3000/users", configObj)
-    //             .then(res)
-    //             console.log(res)
-    //             .then(json => {console.log(json)})
-    //             .catch(function(error) {
-    //                 alert("Trouble Connecting to the server");
-    //                 console.log(error.message);
-    //               })
-
 }
