@@ -28,9 +28,12 @@ const usernamesubmit = document.getElementById("usernamesubmit")
 usernamesubmit.addEventListener("click", handleUsername) 
 
 function handleUsername(event) {
+    const htag = document.getElementById("intro")
+    debugger
     event.preventDefault()
     let username = event.srcElement.form.elements[0].value
     let player = new Player(username)
+    htag.innerText = `${player.name}`
     renderPlayer()
     postPlayer(player)
 }
@@ -46,16 +49,16 @@ function postPlayer (player) {
         body: JSON.stringify(player)
     } 
 
-    fetch("http://127.0.0.1:3000/users", configObj) 
-    .then(function(response) {
-    return response.json();
-    })
-    .then(function(object) {
-    console.log(object);
-    })
-    .catch(function(error) {
-        alert("Could not Upload your username onto the database");
-        console.log(error.message);
+    return fetch("http://127.0.0.1:3000/users", configObj) 
+        .then(function(response) {
+        return response.json();
+        })
+        .then(function(object) {
+        console.log(object);
+        })
+        .catch(function(error) {
+            alert("Could not Upload your username onto the database");
+            console.log(error.message);
       })
 }
 
