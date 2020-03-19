@@ -1,3 +1,6 @@
+let offensive = document.getElementById("offensive")
+let defensive = document.getElementById("defensive")
+
 class Territory {
     
     static all =[]
@@ -59,6 +62,3 @@ class Territory {
           }
       }
 }
-
-let offensive = document.getElementById("offensive")
-let defensive = document.getElementById("defensive")

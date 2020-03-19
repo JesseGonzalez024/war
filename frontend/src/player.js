@@ -1,3 +1,5 @@
+document.addEventListener('DOMContentLoaded', fetchPlayers)
+
 class Player {
 
     static all =[]
@@ -13,6 +15,31 @@ class Player {
         this.territories.forEach(function(t){
             t.troops += 1
         })
+    }
+
+    postPlayer (player) {
+        
+        configObj = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify(player)
+        } 
+        debugger
+    
+        return fetch("http://127.0.0.1:3000/users", configObj) 
+            .then(function(response) {
+            return response.json();
+            })
+            .then(function(object) {
+            console.log(object);
+            })
+            .catch(function(error) {
+                alert("Could not Upload your username onto the database");
+                console.log(error.message);
+          })
     }
 
     static renderPlayer() {
@@ -48,31 +75,28 @@ function handleUsername(event) {
     let player = new Player(username)
     htag.innerText = `${player.name}`
     Player.renderPlayer()
-    postPlayer(player)
+    // postPlayer(player)
+    // player.postPlayer()
 }
 
-function postPlayer (player) {
-        
-    configObj = {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json"
-        },
-        body: JSON.stringify(player)
-    } 
-
-    return fetch("http://127.0.0.1:3000/users", configObj) 
-        .then(function(response) {
-        return response.json();
-        })
-        .then(function(object) {
-        console.log(object);
-        })
-        .catch(function(error) {
-            alert("Could not Upload your username onto the database");
-            console.log(error.message);
-      })
+function fetchPlayers() {
+    return fetch("http://127.0.0.1:3000/users")
+    .then(resp => resp.json())
+    .then(json => renderPlayers(json));
 }
 
+function renderPlayers(json) {
+   let nameone = document.getElementById('nameone')
+    let nametwo = document.getElementById('nametwo')
+    let namethree = document.getElementById('namethree')
+    let countone = document.getElementById('countone')
+    let counttwo = document.getElementById('counttwo')
+    let countthree = document.getElementById('countthree')
+    nameone.innerHTML = `${json[0].username}`
+    countone.innerHTML = `${json[0].final_count}`
+    nametwo.innerHTML = `${json[1].username}`
+    counttwo.innerHTML = `${json[1].final_count}`
+    namethree.innerHTML = `${json[2].username}`
+    countthree.innerHTML = `${json[2].final_count}`     
+}   
 
