@@ -16,6 +16,8 @@ class Player {
     }
 
     static renderPlayer() {
+        let usernameinput = document.getElementById("username")
+        username.style.display = "none"
         let player = Player.all[0]
         let divtag = document.getElementById("playerstatus")
         let turntag = document.createElement("h6")
@@ -29,12 +31,11 @@ usernamesubmit.addEventListener("click", handleUsername)
 
 function handleUsername(event) {
     const htag = document.getElementById("intro")
-    debugger
     event.preventDefault()
     let username = event.srcElement.form.elements[0].value
     let player = new Player(username)
     htag.innerText = `${player.name}`
-    renderPlayer()
+    Player.renderPlayer()
     postPlayer(player)
 }
 
@@ -61,9 +62,5 @@ function postPlayer (player) {
             console.log(error.message);
       })
 }
-
-
-
-
 
 
