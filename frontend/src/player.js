@@ -22,8 +22,10 @@ class Player {
             body: JSON.stringify(this)
         }
 
-        fetch("http://127.0.0.1:3000/games", configObj)
+        fetch("http://127.0.0.1:3000/users", configObj)
         .then(resp => resp.json())
+        // Callback method to render player
+        // If used serilaizef could get back info on association adn id
         .then(json => console.log(json))
     }
 

@@ -58,6 +58,7 @@ function diceRoll(){
 }
 
 function handleTurnEnd(){
+    event.preventDefault()
     let player = Player.all[0]
     player.turnCount += 1
     player.addTroops()

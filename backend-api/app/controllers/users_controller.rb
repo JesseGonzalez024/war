@@ -6,16 +6,20 @@ class UsersController < ApplicationController
     end
 
     def create
-        byebug
-        # user = User.new(username: params[:name])
-        # if user.valid?
-        #     user.save
-        # end
+        # byebug
+        user = User.find_or_create_by(username: params[:name])
+        
+        if user.valid?
+            # Add Serializer for user 
+            # render json: user
+        else
+            render json: {message: "Error could not save username to database."}, status: 400
+        end
     end
 
     def update
 
-        byebug
+        # byebug
     end
 
 end

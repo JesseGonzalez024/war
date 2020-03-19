@@ -6,7 +6,7 @@ class Territory {
     static all =[]
 
     constructor(name){
-        this.troops = 10
+        this.troops = 2
         this.name = name
         Territory.all.push(this)  
     }
@@ -20,21 +20,20 @@ class Territory {
                 return Territory.all
             })
             Territory.renderTerritories()
-            .catch(function(error) {
-                alert("Trouble Connecting to the server");
-                console.log(error.message);
-              })
           })
       }
 
       static renderTerritories() {
-        Territory.all.forEach(function(t){
+         let player = Player.all[0]
+         player.territories = Territory.all.slice(0, 3) 
+        player.territories.forEach(function(t){
             let element =  document.createElement("option")
             element.value = `${t.name}`
             element.innerHTML = `${t.name}`
             offensive.appendChild(element)
         })
-        Territory.all.forEach(function(t){
+
+        Territory.all.slice(2, -1).forEach(function(t){
             let element =  document.createElement("option")
             element.value = `${t.name}`
             element.innerHTML = `${t.name}`
@@ -57,6 +56,7 @@ class Territory {
       zeroTroops() {
           if (this.troops === 0){
             let player = Player.all[0]
+            // Player.all has no value. Buttin new game clicked before player instance created
             player.territories.push(this)
             Player.listTerritories()
             allTerritories(player)
