@@ -1,6 +1,4 @@
 class Game < ApplicationRecord
-    has_many :continents
-    has_many :troops, through: :continents 
     belongs_to :user
 
 

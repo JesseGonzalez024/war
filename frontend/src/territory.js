@@ -33,7 +33,7 @@ class Territory {
             offensive.appendChild(element)
         })
 
-        Territory.all.slice(2, -1).forEach(function(t){
+        Territory.all.slice(3).forEach(function(t){
             let element =  document.createElement("option")
             element.value = `${t.name}`
             element.innerHTML = `${t.name}`
@@ -58,6 +58,7 @@ class Territory {
             let player = Player.all[0]
             // Player.all has no value. Buttin new game clicked before player instance created
             player.territories.push(this)
+            debugger
             Player.listTerritories()
             allTerritories(player)
           }

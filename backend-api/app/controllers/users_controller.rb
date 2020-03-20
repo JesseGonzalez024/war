@@ -11,7 +11,7 @@ class UsersController < ApplicationController
         
         if user.valid?
             # Add Serializer for user 
-            # render json: user
+            render json: user
         else
             render json: {message: "Error could not save username to database."}, status: 400
         end

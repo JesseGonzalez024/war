@@ -1,4 +1,6 @@
 const newGameButton = document.getElementById("newgame")
+newGameButton.style.display = "none"
+
 const attackButton = document.getElementById("attack")
 const endTurnButton = document.getElementById("endturn")
 

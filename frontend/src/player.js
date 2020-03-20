@@ -42,11 +42,16 @@ class Player {
         usernamesubmit.style.display = "none"
         let usernameinput = document.getElementById("username")
         username.style.display = "none"
+       
         let player = Player.all[0]
         let divtag = document.getElementById("playerstatus")
         let turntag = document.createElement("h6")
         turntag.innerHTML = `${player.turnCount}`
         divtag.appendChild(turntag)
+
+        if (username.style.display = "none") {
+            newGameButton.style.display = "initial"
+        }
     }
 
     static listTerritories() {
@@ -57,7 +62,6 @@ class Player {
             litag.innerHTML = `${t.name}`
             ultag.appendChild(litag)
         })
-
     }
 }
 
@@ -65,6 +69,7 @@ const usernamesubmit = document.getElementById("usernamesubmit")
 usernamesubmit.addEventListener("click", handleUsername) 
 
 function handleUsername(event) {
+
     const htag = document.getElementById("intro")
     event.preventDefault()
     let username = event.srcElement.form.elements[0].value
@@ -96,3 +101,4 @@ function renderPlayers(json) {
     namethree.innerHTML = `${json[2].username}`
     countthree.innerHTML = `${json[2].final_count}`     
 }
+
