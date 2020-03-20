@@ -1,22 +1,14 @@
 class GamesController < ApplicationController
 
     def create
-        # byebug
+        byebug
+
         user = User.find_by_username(params[:name])
-        # user.update(final_count: params[:turnCount])
-        game = Game.new
-        game.user_id = user.id
-        
-    #    byebug
-        
-        if game.valid?
-            game.save
-        end
-        
+        game = Game.create(user_id: user.id)
     end
 
     def update
-        # byebug
+        
     end
 
 end

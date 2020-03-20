@@ -11,12 +11,30 @@ endTurnButton.addEventListener("click", handleTurnEnd)
 function startgame() {
     renderMap()
     Territory.fetchTerritories()
+    postGame()
 }
 
 function renderMap(){
     const map = document.getElementById("worldmap")
     let imgsrc = "/Users/jesse/Desktop/war/frontend/images/world-map.jpg"
     map.src = imgsrc
+}
+
+function postGame() {
+    let configObj = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+        body: JSON.stringify(Player.all[0])
+    }
+    
+    debugger
+    fetch("http://127.0.0.1:3000/games", configObj)
+          .then(res => res.json())
+          .then(json => console.log(json))
+
 }
 
 function attack(event){
@@ -76,7 +94,7 @@ function allTerritories(player) {
 
 function weHaveAWinner(player){
     configObj = {
-                method: "EDIT",
+                method: "PATCH",
                 headers: {
                     "Content-Type": "application/json",
                     "Accept": "application/json"
@@ -84,7 +102,7 @@ function weHaveAWinner(player){
                 body: JSON.stringify(player)
             } 
 
-            fetch("http://127.0.0.1:3000/games/", configObj) 
+            fetch(`http://127.0.0.1:3000/users/${player.id}`, configObj) 
                 .then(function(response) {
                 return response.json();
                 })
@@ -95,8 +113,6 @@ function weHaveAWinner(player){
                     alert("There has been an error uploading your info onto the database.");
                     console.log(error.message);
                   })
-
-
 }
 
 

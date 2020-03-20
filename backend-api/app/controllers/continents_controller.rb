@@ -5,6 +5,4 @@ class ContinentsController < ApplicationController
         render json: continents.shuffle
     end
 
-
-
 end

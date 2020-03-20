@@ -24,16 +24,15 @@ class Territory {
       }
 
       static renderTerritories() {
-         let player = Player.all[0]
-         player.territories = Territory.all.slice(0, 3) 
-        player.territories.forEach(function(t){
+        
+         Territory.all.forEach(function(t){
             let element =  document.createElement("option")
             element.value = `${t.name}`
             element.innerHTML = `${t.name}`
             offensive.appendChild(element)
         })
 
-        Territory.all.slice(3).forEach(function(t){
+        Territory.all.forEach(function(t){
             let element =  document.createElement("option")
             element.value = `${t.name}`
             element.innerHTML = `${t.name}`
@@ -56,9 +55,7 @@ class Territory {
       zeroTroops() {
           if (this.troops === 0){
             let player = Player.all[0]
-            // Player.all has no value. Buttin new game clicked before player instance created
             player.territories.push(this)
-            debugger
             Player.listTerritories()
             allTerritories(player)
           }
