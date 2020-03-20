@@ -1,12 +1,17 @@
+document.addEventListener('DOMContentLoaded', fetchPlayers)
+
+const usernamesubmit = document.getElementById("usernamesubmit")
+usernamesubmit.addEventListener("click", handleUsername) // Player
+
 const newGameButton = document.getElementById("newgame")
 newGameButton.style.display = "none"
 
 const attackButton = document.getElementById("attack")
 const endTurnButton = document.getElementById("endturn")
 
-newGameButton.addEventListener("click", startgame)
-attackButton.addEventListener("click", attack)
-endTurnButton.addEventListener("click", handleTurnEnd)
+newGameButton.addEventListener("click", startgame) // Gameplay
+attackButton.addEventListener("click", attack)  // Gameplay
+endTurnButton.addEventListener("click", handleTurnEnd) // Player
 
 function startgame() {
     renderMap()

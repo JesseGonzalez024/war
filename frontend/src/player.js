@@ -1,5 +1,3 @@
-document.addEventListener('DOMContentLoaded', fetchPlayers)
-
 class Player {
 
     static all =[]
@@ -12,6 +10,14 @@ class Player {
         Player.all.push(this)
     }
 
+    addTroops() {
+        this.territories.forEach(function(t){
+            t.troops += 1
+        })
+        console.log("Your forces have been resupplied")
+        alert("Your forces have been resupplied")
+    }
+
     postPlayer = () => {
         let configObj = {
             method: "POST",
@@ -19,7 +25,6 @@ class Player {
                 "Content-Type": "application/json",
                 "Accept": "application/json"
             },
-            
             body: JSON.stringify(this)
         }
 
@@ -33,13 +38,6 @@ class Player {
     static addId(json){
         let player = Player.all[0]
         player.id = json.id
-    }
-    addTroops() {
-        this.territories.forEach(function(t){
-            t.troops += 1
-        })
-        console.log("Your forces have been resupplied")
-        alert("Your forces have been resupplied")
     }
 
     static renderPlayer() {
@@ -68,9 +66,6 @@ class Player {
         })
     }
 }
-
-const usernamesubmit = document.getElementById("usernamesubmit")
-usernamesubmit.addEventListener("click", handleUsername) 
 
 function handleUsername(event) {
 
@@ -105,4 +100,3 @@ function renderPlayers(json) {
     namethree.innerHTML = `${json[2].username}`
     countthree.innerHTML = `${json[2].final_count}`     
 }
-
