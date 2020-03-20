@@ -30,12 +30,10 @@ class Player {
 
         fetch("http://127.0.0.1:3000/users", configObj)
         .then(resp => resp.json())
-        // Callback method to render player
-        // If used serilaizef could get back info on association and id
         .then(json => Player.addId(json))
     }
 
-    static addId(json){
+    static addId(json) {
         let player = Player.all[0]
         player.id = json.id
     }

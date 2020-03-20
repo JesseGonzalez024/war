@@ -19,7 +19,7 @@ function startgame() {
     postGame()
 }
 
-function renderMap(){
+function renderMap() {
     const map = document.getElementById("worldmap")
     let imgsrc = "/Users/jesse/Desktop/war/frontend/images/world-map.jpg"
     map.src = imgsrc
@@ -42,7 +42,7 @@ function postGame() {
 
 }
 
-function attack(event){
+function attack(event) {
     event.preventDefault()
     let attacker = event.toElement.form.elements[0].selectedOptions[0].label
     let defender = event.toElement.form.elements[1].selectedOptions[0].label
@@ -63,7 +63,7 @@ function verifyWinner(attacker, defender){
     }
 }
 
-function diceRoll(){  
+function diceRoll() {  
     let player = Math.floor(Math.random() * 6 + 1)
     let pc = Math.floor(Math.random() * 6 + 1)
     let playerdice = document.getElementById("playerdice")
@@ -72,17 +72,17 @@ function diceRoll(){
     playerdice.innerHTML = player
     oppdice.innerHTML = pc
 
-    if (player > pc ){
+    if (player > pc ) {
         alert("You win this round and your opponent has lost a troop!")
         return true
     }
-    else if (player < pc ){
+    else if (player < pc ) {
         alert("You've lost this round and 1 troop!")
         return false
     }
 }
 
-function handleTurnEnd(){
+function handleTurnEnd() {
     event.preventDefault()
     let player = Player.all[0]
     player.turnCount += 1
@@ -97,7 +97,7 @@ function allTerritories(player) {
     }
 }
 
-function weHaveAWinner(player){
+function weHaveAWinner(player) {
     configObj = {
                 method: "PATCH",
                 headers: {
@@ -119,8 +119,3 @@ function weHaveAWinner(player){
                     console.log(error.message);
                   })
 }
-
-
-
-
-

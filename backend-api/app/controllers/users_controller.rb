@@ -18,11 +18,11 @@ class UsersController < ApplicationController
     def update
         user = User.find_by_id(params[:id])
         
+        byebug
         if user.final_count != nil
             user.update
         else
             render json: {message: "Error could not save username to database."}, status: 400
         end
     end
-
 end
